@@ -1,13 +1,4 @@
-"""Paint, for drawing shapes.
-
-Exercises
-
-1. Add a color.
-2. Complete circle.
-3. Complete rectangle.
-4. Complete triangle.
-5. Add width parameter.
-"""
+#Paint, for drawing shapes.
 
 from turtle import *
 
@@ -43,22 +34,48 @@ def circle(start, end):
     down()
     radius = abs(end.x - start.x)
     begin_fill()
-    
+
     for count in range(360):
         forward((2 * 3.1416 * radius) / 360)
         left(1)
-    
+
     end_fill()
 
 
 def rectangle(start, end):
     """Draw rectangle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    width = end.x - start.x
+    height = end.y - start.y
+
+    for count in range(2):
+        forward(width)
+        left(90)
+        forward(height)
+        left(90)
+
+    end_fill()
 
 
 def triangle(start, end):
     """Draw triangle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    mid_x = (start.x + end.x) / 2
+    height = abs(end.x - start.x)
+
+    goto(end.x, end.y)
+    goto(mid_x, start.y + height)
+    goto(start.x, start.y)
+
+    end_fill()
 
 
 def tap(x, y):
